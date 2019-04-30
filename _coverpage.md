@@ -1,4 +1,4 @@
-# Docsify Starter Kit by Alok Prateek
+# expedite-core-docs
 
 > No clever tag line needed, if your software is clever
 

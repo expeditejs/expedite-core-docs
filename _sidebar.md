@@ -1,4 +1,5 @@
-- [Docs](docs/yourdocs.md)
+- **DOCS**
+  - [Docs](/docs/yourdocs.md)
 
 ---
 - <small>**uses Docsify Starter Kit**</small>

@@ -1,4 +1,4 @@
-<h1 align="center">Welcome to expeditejs</h1>
+# Welcome to expeditejs
 
 <br />
 
@@ -14,7 +14,7 @@ As this project is a generator project and CLI is separate which adds support fo
 
 ![CI Workflow](https://raw.githubusercontent.com/expeditejs/expedite/master/resources/ci-workflow.jpg)
 
-## The stack is made up of :
+## The stack is made up of
 
 * Vue.js : front-end framework
 * Vue-cli : standard tooling for vue.js development
@@ -32,7 +32,7 @@ As this project is a generator project and CLI is separate which adds support fo
 * [Optional] circleci : continuous integration/deployment
 * [Optional] bundlesize : control your javascript bundles sizes
 
-## App embedded features :
+## App embedded features
 
 * Google authentication
 * Offline support (dynamic & static caching)
@@ -42,13 +42,11 @@ As this project is a generator project and CLI is separate which adds support fo
 * Products page example to demonstrate app data management with firestore and vuex
 * Better PWA support for all browsers with PWACompat
 
-
-
     Pre-requisites
 
-    node@9.3.0+
-    npm@5.5.0+
-    TIP
+    `node@9.3.0+`
+    `npm@5.5.0+`
+    `TIP`
 
     We highly recommend to use VSCode with the following plugins to get a better development experience :
 
@@ -57,108 +55,123 @@ As this project is a generator project and CLI is separate which adds support fo
     Vetur
     expeditejs comes with a default code editor config that will automatically be used by vscode. This config is available in .vscode/settings.json.
 
-# Step 1 - Installation
+## Step 1 - Installation
 
-🕙Estimated time → 20 seconds 
+🕙Estimated time → 20 seconds
+
 ```
-
-git clone 
+git clone
 cp .env.example .env.local
 npm i
-
 ```
-# Step 2 - Firebase configuration
 
-🕙Estimated time → 3 minutes 
+## Step 2 - Firebase configuration
 
-Create a new firebase project with the firebase console
-Once your firebase project is created, add an application by clicking the web button 👉 Firebase web app button and copy the config object and replace the config variable in /src/firebase/init.js in expeditejs project.
-Go to Side menu → Database → Create database and select Start in test mode. Now your firestore database is up.
-Go to Side menu → Authentication click Set up sign-in method.
-Click on Google provider, enable it by clicking the switch button, select a project support email and click save button. You will be able to change or add new auth providers later if you need to.
-Back to your expeditejs project, open a console and run :
-npm i -g npx
+🕙Estimated time → 3 minutes
 
-# login with the account you used to create the firebase project
+* Create a new firebase project with the firebase console
+* Once your firebase project is created, add an application by clicking the web button 👉 Firebase web app button and copy the config object and replace the config variable in `/src/firebase/init.js` in expeditejs project.
+* Go to Side menu → Database → Create database and select Start in test mode. Now your firestore database is up.
+* Go to Side menu → Authentication click Set up sign-in method.
+* Click on Google provider, enable it by clicking the switch button, select a project support email and click save button. You will be able to change or add new auth providers later if you need to.
+* Back to your expeditejs project, open a console and run :
+`npm i -g npx`
 
-npx firebase login
+## login with the account you used to create the firebase project
 
-# select the project you've just created and use "default" as alias
+`npx firebase login`
 
-npx firebase use --add
+## select the project you've just created and use "default" as alias
 
-# Build the app and deploy
+`npx firebase use --add`
 
-npm run build
-npx firebase deploy
-You're done ! 🎉
-Your project is now available on firebase hosting.
-You can also run npm run serve and start your app development !
+## Build the app and deploy
+
+* `npm run build`
+* `npx firebase deploy`
+* You're done ! 🎉
+* Your project is now available on firebase hosting.
+* You can also run npm run serve and start your app development !
 
 However we recommend you to go through optional steps to get a better developer experience 😎
 
-# Step 3 (Optional) - Continuous integration/deployment
+## Step 3 (Optional) - Continuous integration/deployment
 
-🕙Estimated time → 5 minutes 
+🕙Estimated time → 5 minutes
 
 We've built a CircleCI configuration that will trigger the following actions when you're pushing to your github repository. The process is the following :
 
-Check that all project files matches the prettier format : npm run prettier:check
-Run the linter : npm run lint
-Run unit tests : npm run test:unit
-Run e2e tests : npm run test:e2e:headless
-Build the project : npm run build
-Check your js bundles sizes : npm run bundlesize
-Eventually deploy the built project to firebase hosting if the targeted branch is master : npm run firebase:deploy:ci
-CircleCI workflow
+* Check that all project files matches the prettier format : `npm run prettier:check`
+* Run the linter : `npm run lint`
+* Run unit tests : `npm run test:unit`
+* Run e2e tests : `npm run test:e2e:headless`
+* Build the project : `npm run build`
+* Check your js bundles sizes : `npm run bundlesize`
+* Eventually deploy the built project to firebase hosting if the targeted branch is master : `npm run firebase:deploy:ci`
 
 ⚠️ For this step, we assume that you already have a github repository that hosts your expeditejs project with your source code pushed on the master branch ⚠️
 
 Steps :
 
-Go to https://circleci.com
-Login with your github account
-Authorize CircleCI to look into your github projects
-Go to Side menu → Add projects and click the Set Up Project button corresponding to your expeditejs project
-Choose Linux for operating system and Node for the language
-You can directly start your first CircleCI build by clicking Start building button.
-Go to Side menu → Jobs and you should see your first CircleCI job running
-Now wait for all the jobs to finish
-The last job (deploy) will fail and this is normal 😅 It's because of the deployment step (npm run firebase:deploy:ci). We need to authorize circle ci to deploy on our firebase hosting project. For this we just need to add a firebase token to circle ci :
+* Go to https://circleci.com
+* Login with your github account
+* Authorize CircleCI to look into your github projects
+* Go to Side menu → Add projects and click the Set Up Project button corresponding to your expeditejs project
+* Choose Linux for operating system and Node for the language
+* You can directly start your first CircleCI build by clicking Start building button.
+* Go to Side menu → Jobs and you should see your first CircleCI job running
+* Now wait for all the jobs to finish
+* The last job (deploy) will fail and this is normal 😅 It's because of the deployment step (npm run firebase:deploy:ci). We need to authorize circle ci to deploy on our firebase hosting project. For this we just need to add a firebase token to circle ci :
 
-Back to a terminal run the following command :
-npx firebase login:ci
-Login with you google account and authorize firebase-cli. The command will print out a token that looks like this :
-1/PXcLCJ5BXAZ7ciFwkrrpikUbnMAMX8xRFmt16pLYudg9
-Copy this token and in your CircleCI project interface, go to Your CircleCI project settings → Environment Variables and click Add Variable button.
-For the env variable name, use FIREBASE_TOKEN and for the value, use the token you got from the firebase login:ci command.
-Go to Side menu → Jobs click the job that fails and click the Rerun workflow button.
-Wait again for all the jobs to finish.
-Now the deploy step has completed with success and your project has automatically been deployed to firebase hosting
+* Back to a terminal run the following command :
+* `npx firebase login:ci`
+* Login with you google account and authorize firebase-cli. The command will print out a token that looks like this :
+* `1/PXcLCJ5BXAZ7ciFwkrrpikUbnMAMX8xRFmt16pLYudg9`
+* Copy this token and in your CircleCI project interface, go to Your CircleCI project settings → Environment Variables and click Add Variable button.
+* For the env variable name, use `FIREBASE_TOKEN` and for the value, use the token you got from the firebase login:ci command.
+* Go to Side menu → Jobs click the job that fails and click the Rerun workflow button.
+* Wait again for all the jobs to finish.
+* Now the deploy step has completed with success and your project has automatically been deployed to firebase hosting
 
 
-Commands
-# Compiles and hot-reloads for development
+## Commands
+
+### Compiles and hot-reloads for development
+
 npm run serve
-# Compiles and minifies for production
+
+### Compiles and minifies for production
+
 npm run build
-# Run your tests
+
+### Run your tests
+
 npm run test
-# Lints and fixes files
+
+### Lints and fixes files
+
 npm run lint
-# Run your end-to-end tests
+
+### Run your end-to-end tests
+
 npm run test:e2e
-# Run your unit tests
+
+### Run your unit tests
+
 npm run test:unit
-# Run prettier check format
+
+### Run prettier check format
+
 npm run prettier:check
-# Format all files with prettier
+
+### Format all files with prettier
+
 npm run prettier:format-all
 
 
-# Guide
+## Guide
 
-## Tooling
+### Tooling
 
 <br />
 
@@ -166,9 +179,9 @@ npm run prettier:format-all
 
 <br />
 
-::: tip
+_ tip
 📘 Refer to [the official documentation](https://cli.vuejs.org/) for more details.
-:::
+_
 
 ## Environments
 
@@ -180,17 +193,17 @@ npm run prettier:format-all
 
 <br />
 
-::: tip
+_ tip
 📘 Refer to [the official documentation](https://cli.vuejs.org/guide/mode-and-env.html#modes) for more details.
-:::
+_
 
 ### Environments variables & Modes
 
 <br />
 
-::: tip
+_ tip
 📘 Refer to [the official documentation](https://cli.vuejs.org/guide/mode-and-env.html#modes) for more details.
-:::
+_
 
 ## PWA
 
@@ -206,9 +219,9 @@ The **service worker** configuration is available in `public/service-worker.js`.
 
 <br />
 
-::: tip
+_ tip
 📘 Refer to [the official documentation](https://github.com/vuejs/vue-cli/tree/dev/packages/%40vue/cli-plugin-pwa) for more details.
-:::
+_
 
 ### App new version available
 
@@ -224,9 +237,9 @@ The **web app manifest** is available here `public/manifest.json`.
 
 <br />
 
-::: tip
+_ tip
 📘 Refer to [the google documentation](https://developers.google.com/web/fundamentals/web-app-manifest/) for more details.
-:::
+_
 
 ### Offline
 
@@ -282,9 +295,9 @@ const prerenderedRoutesList = ['/login', '/home', '/']
 
 <br />
 
-::: tip
+_ tip
 📘 Refer to [the official documentation](https://github.com/chrisvfritz/prerender-spa-plugin) for more details.
-:::
+_
 
 ## Authentication
 
@@ -292,14 +305,14 @@ const prerenderedRoutesList = ['/login', '/home', '/']
 
 **expeditejs** uses [firebase auth](https://firebase.google.com/docs/auth/) to handle user authentication. By default, Google Authentication is the only provider enabled in the **expeditejs** stack. You can easily add other providers like **Twitter** or **Facebook** by going to the [firebase console](https://console.firebase.google.com), on the `Authentication` page.
 
-- Login component is located in `src/views/Login.vue`.<br />
-- Authentication management code is located in `src/misc/handle-authentication.js` and in `src/store/authentication` folder.
+* Login component is located in `src/views/Login.vue`.
+* Authentication management code is located in `src/misc/handle-authentication.js` and in `src/store/authentication` folder.
 
 <br />
 
-::: tip
+_ tip
 📘 Refer to [the official documentation](https://firebase.google.com/docs/auth/) for more details.
-:::
+_
 
 ## Cloud database
 
@@ -322,9 +335,9 @@ npx firebase deploy --only rules
 
 <br />
 
-::: tip
+_ tip
 📘 Refer to [the official documentation](https://firebase.google.com/docs/firestore/) for more details.
-:::
+_
 
 ## Data management
 
@@ -336,9 +349,9 @@ Front-end data management is done with [vuex](https://vuex.vuejs.org/).
 
 <br />
 
-::: tip
+_ tip
 📘 Refer to [the official documentation](https://vuex.vuejs.org/) for more details.
-:::
+_
 
 ## Hosting
 
@@ -362,9 +375,9 @@ Deployment configuration can be found in `/firebase.json`.
 
 <br />
 
-::: tip
+_ tip
 📘 Refer to [the official documentation](https://firebase.google.com/docs/hosting/) for more details.
-:::
+_
 
 ## Continuous integration/deployment
 
@@ -374,13 +387,13 @@ Continuous integration/deployment is handled by [CircleCI](https://circleci.com/
 
 CircleCI will process the following :
 
-- Check that all project files matches the prettier format : `npm run prettier:check`
-- Run the linter : `npm run lint`
-- Run unit tests : `npm run test:unit`
-- Run e2e tests : `npm run test:e2e:headless`
-- Build the project : `npm run build`
-- Check your js bundles sizes : `npm run bundlesize`
-- **Eventually** deploy the built project to firebase hosting if the targeted branch is **master** : `npm run firebase:deploy:ci`
+* Check that all project files matches the prettier format : `npm run prettier:check`
+* Run the linter : `npm run lint`
+* Run unit tests : `npm run test:unit`
+* Run e2e tests : `npm run test:e2e:headless`
+* Build the project : `npm run build`
+* Check your js bundles sizes : `npm run bundlesize`
+* **Eventually** deploy the built project to firebase hosting if the targeted branch is **master** : `npm run firebase:deploy:ci`
 
 ![CircleCI workflow](/assets/img/ci-workflow.jpg)
 
@@ -388,9 +401,9 @@ CircleCI will process the following :
 
 <br />
 
-::: tip
+_ tip
 📘 Refer to [the CircleCI documentation](https://circleci.com/docs/) for more details.
-:::
+_
 
 ## Tests
 
@@ -415,9 +428,9 @@ You can easily change these testing frameworks with [vue-cli](https://cli.vuejs.
 
 <br />
 
-::: tip
+_ tip
 📘 Refer to the [Jest documentation](https://jestjs.io/) or [Cypress documentation](https://www.cypress.io/) for more details.
-:::
+_
 
 ## BundleSize
 
@@ -436,9 +449,9 @@ If you did [**step 3** in the setup](/setup/#step-3-optional-continuous-integrat
 
 <br />
 
-::: tip
+_ tip
 📘 Refer to [the official documentation](https://github.com/siddharthkp/bundlesize) for more details.
-:::
+_
 
 ## Code format
 
@@ -460,9 +473,9 @@ npm run prettier:format-all
 
 <br />
 
-::: tip
+_ tip
 📘 Refer to [the official documentation](https://prettier.io/) for more details.
-:::
+_
 
 ## Code quality
 
@@ -478,9 +491,9 @@ npm run lint
 
 <br />
 
-::: tip
+_ tip
 📘 Refer to [the official documentation](https://eslint.org/) for more details.
-:::
+_
 
 ## Pages meta infos
 
@@ -490,6 +503,6 @@ Manipulating the meta information of the head tag is done with [vue-head](https:
 
 <br />
 
-::: tip
+_ tip
 📘 Refer to [the official documentation](https://github.com/ktquez/vue-head) for more details.
-:::
+_

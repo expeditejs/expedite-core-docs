@@ -1,7 +1,5 @@
 # Welcome to expeditejs
 
-<br />
-
 **expeditejs** is an Open-Source Full-Stack solution that helps you to build fast and maintainable web applications using tools like Vue.js, Firebase, Progressive Web Apps support, dynamic offline support... The goal of this project is to provide a powerful and well configured stack (with CI/CD, hosting...) so you can focus on writing your web application very quickly.
 
 As this project is a generator project and CLI is separate which adds support for vue components and/or changing the frontend base to react. Right now you have access to the entire CLI and generator app configuration so you can change it according to your needs. A single config is in works, but it often breaks, depending on what ou use.
@@ -133,7 +131,6 @@ Steps :
 * Wait again for all the jobs to finish.
 * Now the deploy step has completed with success and your project has automatically been deployed to firebase hosting
 
-
 ## Commands
 
 ### Compiles and hot-reloads for development
@@ -168,46 +165,37 @@ npm run prettier:check
 
 npm run prettier:format-all
 
-
 ## Guide
 
 ### Tooling
 
-<br />
-
 **expeditejs** uses [Vue CLI](https://cli.vuejs.org/) which is the default standard tooling for Vue.js development.
 
-<br />
-
-_ tip
+ 
 📘 Refer to [the official documentation](https://cli.vuejs.org/) for more details.
-_
+ 
 
 ## Environments
-
-<br />
 
 ### Configurations files
 
 **Vue-cli** configuration may be different depending on the mode you are running the app. You can find all config files per mode on the `/vue-config` folder. `/vue-config/config.default.js` will be merged with either `/vue-config/config.development.js` or `/vue-config/config.production.js` depending on the mode you are using.
 
-<br />
-
-_ tip
+ 
 📘 Refer to [the official documentation](https://cli.vuejs.org/guide/mode-and-env.html#modes) for more details.
-_
+ 
 
 ### Environments variables & Modes
 
-<br />
+ 
 
-_ tip
+ 
 📘 Refer to [the official documentation](https://cli.vuejs.org/guide/mode-and-env.html#modes) for more details.
-_
+ 
 
 ## PWA
 
-<br />
+ 
 
 ### Service worker
 
@@ -217,11 +205,11 @@ The **service worker** configuration is available in `public/service-worker.js`.
 
 **Service worker registration** is done from this file `src/misc/register-service-worker.js`. **By default, service workers are on registered on `production` environment**.
 
-<br />
+ 
 
-_ tip
+ 
 📘 Refer to [the official documentation](https://github.com/vuejs/vue-cli/tree/dev/packages/%40vue/cli-plugin-pwa) for more details.
-_
+ 
 
 ### App new version available
 
@@ -235,11 +223,11 @@ This logic is located in `src/misc/register-service-worker.js` in the `updated` 
 
 The **web app manifest** is available here `public/manifest.json`.
 
-<br />
+ 
 
-_ tip
+ 
 📘 Refer to [the google documentation](https://developers.google.com/web/fundamentals/web-app-manifest/) for more details.
-_
+ 
 
 ### Offline
 
@@ -251,7 +239,7 @@ Offline status event listener is located in `src/misc/handle-network-status.js`.
 ### Add to home screen
 
 If you are using chrome on an android device, the browser will automatically prompt the user to install your PWA.
-<br />
+ 
 
 **On safari IOS, this process is not automatic yet**. The user has to manually add the PWA to home screen.
 For a better experience on IOS, **expeditejs** display a modal explaining the process to add the app to home screen.
@@ -271,7 +259,7 @@ You can easily add push notifications to your expeditejs project with [firebase 
 
 ## Prerendering
 
-<br />
+ 
 
 **expeditejs** uses [prerender-spa-plugin](https://github.com/chrisvfritz/prerender-spa-plugin) for prerendering.
 If you don't know what prerendering is, you should read [this](https://github.com/chrisvfritz/prerender-spa-plugin#what-is-prerendering).
@@ -293,30 +281,30 @@ If you want to configure the list of routes to prerender, you need to update the
 const prerenderedRoutesList = ['/login', '/home', '/']
 ```
 
-<br />
+ 
 
-_ tip
+ 
 📘 Refer to [the official documentation](https://github.com/chrisvfritz/prerender-spa-plugin) for more details.
-_
+ 
 
 ## Authentication
 
-<br />
+ 
 
 **expeditejs** uses [firebase auth](https://firebase.google.com/docs/auth/) to handle user authentication. By default, Google Authentication is the only provider enabled in the **expeditejs** stack. You can easily add other providers like **Twitter** or **Facebook** by going to the [firebase console](https://console.firebase.google.com), on the `Authentication` page.
 
 * Login component is located in `src/views/Login.vue`.
 * Authentication management code is located in `src/misc/handle-authentication.js` and in `src/store/authentication` folder.
 
-<br />
+ 
 
-_ tip
+ 
 📘 Refer to [the official documentation](https://firebase.google.com/docs/auth/) for more details.
-_
+ 
 
 ## Cloud database
 
-<br />
+ 
 
 **expeditejs** uses [firestore](https://firebase.google.com/docs/firestore/) to store and sync data.
 You can find firestore related code in `src/firebase` folder.
@@ -333,29 +321,29 @@ To manually deploy firestore rules, run :
 npx firebase deploy --only rules
 ```
 
-<br />
+ 
 
-_ tip
+ 
 📘 Refer to [the official documentation](https://firebase.google.com/docs/firestore/) for more details.
-_
+ 
 
 ## Data management
 
-<br />
+ 
 
 Front-end data management is done with [vuex](https://vuex.vuejs.org/).
 
 **Vuex** code is located in the `src/store` folder.
 
-<br />
+ 
 
-_ tip
+ 
 📘 Refer to [the official documentation](https://vuex.vuejs.org/) for more details.
-_
+ 
 
 ## Hosting
 
-<br />
+ 
 
 **expeditejs** uses [firebase-hosting](https://firebase.google.com/docs/hosting/) for app deployment.
 
@@ -373,15 +361,15 @@ npm run build
 
 Deployment configuration can be found in `/firebase.json`.
 
-<br />
+ 
 
-_ tip
+ 
 📘 Refer to [the official documentation](https://firebase.google.com/docs/hosting/) for more details.
-_
+ 
 
 ## Continuous integration/deployment
 
-<br />
+ 
 
 Continuous integration/deployment is handled by [CircleCI](https://circleci.com/) (**[If you've enabled it](/setup/#step-3-optional-continuous-integration-deployment)**)
 
@@ -399,17 +387,17 @@ CircleCI will process the following :
 
 **CircleCI** configuration is available in `.circleci/config.yml`.
 
-<br />
+ 
 
-_ tip
+ 
 📘 Refer to [the CircleCI documentation](https://circleci.com/docs/) for more details.
-_
+ 
 
 ## Tests
 
-<br />
+ 
 
-All tests and related configuration can be found in `tests` folder.<br />
+All tests and related configuration can be found in `tests` folder. 
 [Cypress](https://www.cypress.io/) is use for E2E tests and [Jest](https://jestjs.io/) for unit tests.
 
 **Run E2E tests :**
@@ -426,17 +414,17 @@ npm run test:unit
 
 You can easily change these testing frameworks with [vue-cli](https://cli.vuejs.org/) if you want.
 
-<br />
+ 
 
-_ tip
+ 
 📘 Refer to the [Jest documentation](https://jestjs.io/) or [Cypress documentation](https://www.cypress.io/) for more details.
-_
+ 
 
 ## BundleSize
 
-<br />
+ 
 
-BundleSize helps you control your javascript bundle sizes for better performances.<br />
+BundleSize helps you control your javascript bundle sizes for better performances. 
 BundleSize rules are located in the `package.json`, in the `bundlesize` property. You can add as many rules as you want. It is recommended to add as many rules as javascript bundles you have.
 
 **Run BundleSize check command :**
@@ -447,15 +435,13 @@ npm run bundlesize
 
 If you did [**step 3** in the setup](/setup/#step-3-optional-continuous-integration-deployment) section, `bundlesize` command will be run during the CI process.
 
-<br />
+ 
 
-_ tip
+ 
 📘 Refer to [the official documentation](https://github.com/siddharthkp/bundlesize) for more details.
-_
+ 
 
 ## Code format
-
-<br />
 
 **expeditejs** uses [prettier](https://prettier.io/) to keep you code formatted.
 
@@ -471,15 +457,15 @@ npm run prettier:check
 npm run prettier:format-all
 ```
 
-<br />
+ 
 
-_ tip
+ 
 📘 Refer to [the official documentation](https://prettier.io/) for more details.
-_
+ 
 
 ## Code quality
 
-<br />
+ 
 
 **expeditejs** uses [eslint](https://eslint.org/) to control the quality of your code.
 
@@ -489,20 +475,20 @@ _
 npm run lint
 ```
 
-<br />
+ 
 
-_ tip
+ 
 📘 Refer to [the official documentation](https://eslint.org/) for more details.
-_
+ 
 
 ## Pages meta infos
 
-<br />
+ 
 
 Manipulating the meta information of the head tag is done with [vue-head](https://github.com/ktquez/vue-head).
 
-<br />
+ 
 
-_ tip
+ 
 📘 Refer to [the official documentation](https://github.com/ktquez/vue-head) for more details.
-_
+ 

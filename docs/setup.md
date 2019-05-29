@@ -2,7 +2,7 @@
 
 ## Step 1 - Installation
 
-🕙Estimated time → 20 seconds
+> 🕙Estimated time → 20 seconds
 
 ```shell
 git clone
@@ -12,7 +12,7 @@ npm i
 
 ## Step 2 - Firebase configuration
 
-🕙Estimated time → 3 minutes
+> 🕙Estimated time → 3 minutes
 
 * Create a new firebase project with the firebase console
 * Once your firebase project is created, add an application by clicking the web button 👉 Firebase web app button and copy the config object and replace the config variable in `/src/firebase/init.js` in expeditejs project.
@@ -42,7 +42,7 @@ However we recommend you to go through optional steps to get a better developer 
 
 ## Step 3 (Optional) - Continuous integration/deployment
 
-🕙Estimated time → 5 minutes
+> 🕙Estimated time → 5 minutes
 
 We've built a CircleCI configuration that will trigger the following actions when you're pushing to your github repository. The process is the following :
 
@@ -54,9 +54,9 @@ We've built a CircleCI configuration that will trigger the following actions whe
 * Check your js bundles sizes : `npm run bundlesize`
 * Eventually deploy the built project to firebase hosting if the targeted branch is master : `npm run firebase:deploy:ci`
 
-⚠️ For this step, we assume that you already have a github repository that hosts your expeditejs project with your source code pushed on the master branch ⚠️
+> ⚠️ For this step, we assume that you already have a github repository that hosts your expeditejs project with your source code pushed on the master branch ⚠️
 
-Steps :
+### Steps
 
 * Go to [CircleCI](https://circleci.com)
 * Login with your github account

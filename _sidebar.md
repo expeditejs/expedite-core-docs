@@ -1,5 +1,8 @@
 - **DOCS**
-  - [Docs](/docs/yourdocs.md)
+  - [Intro](/docs/intro.md)
+  - [Setup](/docs/setup.md)
+  - [Commands](/docs/commands.md)
+  - [Guide](/docs/guide.md)
 
 ---
 - <small>**uses Docsify Starter Kit**</small>

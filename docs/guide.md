@@ -67,6 +67,16 @@ This logic is located in `src/misc/handle-apple-install-prompt.js`
 
 [PWACompat](https://github.com/GoogleChromeLabs/pwacompat) brings the Web App Manifest to non-compliant browsers for better Progressive Web Apps.
 
+## Publish my PWA to Play Store
+
+You can publish your PWA in Google Play Store by turning it into a Trusted Web Activity.
+In a nutshell, a TWA is a way to run a web app within an android package. Don't worry, it's really easy to setup :wink:
+
+Some good links explaining in details how to do it :
+
+* [https://www.youtube.com/watch?v=7JDFjeMvxos](https://www.youtube.com/watch?v=7JDFjeMvxos)
+* [https://medium.com/@svenbudak/this-twa-stuff-rocks-finally-i-got-my-pwa-on-google-play-store-b92fe8dae31f](https://medium.com/@svenbudak/this-twa-stuff-rocks-finally-i-got-my-pwa-on-google-play-store-b92fe8dae31f)
+
 ## Push notifications
 
 You can easily add push notifications to your expeditejs project with [firebase cloud messaging](https://firebase.google.com/docs/cloud-messaging/)
@@ -122,6 +132,75 @@ npx firebase deploy --only rules
 ```
 
 > 📘 Refer to [the official documentation](https://firebase.google.com/docs/firestore/) for more details.
+
+### How to add a new firestore collection with expedite
+
+It's really easy.
+All you have to know is in the [the official documentation](https://firebase.google.com/docs/firestore/).
+
+However here is a small example of adding a `news` collection using `GenericDB` in expedite :
+
+* First we have to add security rules to allow `news` collection data manipulation. Go to `src/firebase/firestore.rules` and add security rules according to your needs :
+
+```js
+// Now connected users will be able to read and create news.
+match /news/{newsId} {
+  allow list: if authenticated();
+  allow create: if authenticated();
+}
+```
+
+* Upload firestore security rules with the following command :
+
+```shell
+npx firebase deploy --only firestore:rules
+```
+
+* Create a `news-db.js` in `src/firebase` folder and past following :
+
+```js
+import GenericDB from './generic-db'
+// [Optional] Extend GenericDB if you want CRUD operations
+export default class NewsDB extends GenericDB {
+  constructor() {
+    super('news')
+  }
+  // Here you can extend NewsDB with custom methods
+}
+```
+
+* Now you can use `NewsDb` generic methods from everywhere to manipulate the `news` collection :
+
+```js
+import NewsDB from '@/firebase/news-db'
+const newsDB = new NewsDB()
+await newsDB.create({
+  title: 'My first news',
+  content: 'I like sushi',
+  tag: 'cooking'
+})
+await newsDB.create({
+  title: 'My second news',
+  content: 'I dont like sushi',
+  tag: 'cooking'
+})
+await newsDB.create({
+  title: 'My third news',
+  content: 'I like sushi',
+  tag: 'atul'
+})
+// Read news with some constraints
+const news = await newsDB.readAll([
+  ['content', '==', 'I like sushi'],
+  ['tag', '==', 'cooking']
+])
+// news will be :
+// [
+//   { title: 'My first news', content: 'I like sushi', tag: 'cooking' },
+// ]
+```
+
+If you want an example of subcollection creation, take a look at `src/firebase/user-products-db.js` .
 
 ## Data management
 

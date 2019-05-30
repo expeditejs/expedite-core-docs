@@ -15,7 +15,7 @@ npm i
 > 🕙Estimated time → 3 minutes
 
 * Create a new firebase project with the firebase console
-* Once your firebase project is created, add an application by clicking the web button 👉 Firebase web app button and copy the config object and replace the config variable in `/src/firebase/init.js` in expeditejs project.
+* Once your firebase project is created, add an application by clicking the web button Enter an app nickname but do not check "Also set up Firebase Hosting" and click `next`. Copy the `firebaseConfig` object and replace the config variable in `/src/firebase/init.js` in expeditejs project.
 * Go to Side menu → Database → Create database and select Start in test mode. Now your firestore database is up.
 * Go to Side menu → Authentication click Set up sign-in method.
 * Click on Google provider, enable it by clicking the switch button, select a project support email and click save button. You will be able to change or add new auth providers later if you need to.
@@ -62,7 +62,7 @@ We've built a CircleCI configuration that will trigger the following actions whe
 * Login with your github account
 * Authorize CircleCI to look into your github projects
 * Go to Side menu → Add projects and click the Set Up Project button corresponding to your expeditejs project
-* Choose Linux for operating system and Node for the language
+* You might be asked for choosing an OS and a language. If so, choose `Linux` and `Node`.
 * You can directly start your first CircleCI build by clicking Start building button.
 * Go to Side menu → Jobs and you should see your first CircleCI job running
 * Now wait for all the jobs to finish

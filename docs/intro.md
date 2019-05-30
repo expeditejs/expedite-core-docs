@@ -46,6 +46,8 @@ As this project is a generator project and CLI is separate which adds support fo
 > `npm@5.5.0+`
 > `TIP`
 >
+> We recommend to use the node LTS version
+>
 > We highly recommend to use VSCode with the following plugins to get a better development experience :
 >
 > Prettier

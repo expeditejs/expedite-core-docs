@@ -2,7 +2,7 @@
 
 expeditejs is an Open-Source Full-Stack solution that helps you to build fast and maintainable web applications using tools like Vue.js, Firebase, Progressive Web Apps support, dynamic offline support... The goal of this project is to provide a powerful and well configured stack (with CI/CD, hosting...) so you can focus on writing your web application very quickly.
 
-As this project is a generator project and CLI is separate which adds support for vue components and/or changing the frontend base to react. Right now you have access to the entire CLI and generator app configuration so you can change it according to your needs. A single config is in works, but it often breaks, depending on what ou use.
+As this project is a generator project and CLI is separate which adds support for vue components and/or changing the frontend base to react. Right now you have access to the entire CLI and generator app configuration so you can change it according to your needs. A single config is in works, but it often breaks, depending on what you use.
 
 <b>Lighthouse score :</b>
 

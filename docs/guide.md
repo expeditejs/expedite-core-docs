@@ -32,7 +32,7 @@ The <b>service worker</b> configuration is available in `public/service-worker.j
 
 ### App new version available
 
-When you release a version of your app, your user will be informed with a toastr that a new version of you app is available so he can refresh :
+When you release a version of your app, your user will be informed with a toast message that a new version of you app is available so they can refresh :
 
 ![New version available](../_images/new-version-available.png)
 

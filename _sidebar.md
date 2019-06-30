@@ -3,6 +3,11 @@
   - [Setup](/docs/setup.md)
   - [Commands](/docs/commands.md)
   - [Guide](/docs/guide.md)
+- **MORE**
+  - [FAQs](/docs/faq.md)
+  - [Code Of Conduct](/docs/codeof.md)
+  - [Contributing Guidelines](/docs/cont.md)
+  - [License](/docs/ls.md)
 
 ---
 - <small>**uses Docsify Starter Kit**</small>
